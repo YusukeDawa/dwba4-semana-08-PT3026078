@@ -1,18 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exibição de Alunos</title>
-    <div id="dados-alunos"></div>
-
-    <script src="questao4.js"></script>
-
+    <title>Questão 4</title>
 </head>
 <body>
     <h1>Questão 4</h1>
-    <div id="dados-alunos"></div>
+    <table>
+        <tr>
+            <th>Nome Completo</th>
+            <th>Média</th>
+            <th>Situação</th>
+        </tr>
+      
+        <script src="questao4.js"></script>
+        <script>
+           
+            function preencherTabela() {
+                const tabela = document.querySelector('table');
+                const corpoTabela = tabela.querySelector('tbody');
 
+                for (const aluno of alunos) {
+                    const linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${aluno.obterNomeCompleto()}</td>
+                        <td>${aluno.calcularMedia().toFixed(2)}</td>
+                        <td>${aluno.verificarSituacao()}</td>
+                    `;
+                    corpoTabela.appendChild(linha);
+                }
+            }
+
+            preencherTabela();
+        </script>
+    </table>
+
+    
      <a href="index.html">Voltar</a>
+
 </body>
 </html>
